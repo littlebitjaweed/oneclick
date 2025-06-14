@@ -40,7 +40,7 @@ SECRET_KEY = 'django-insecure-yo#j_4hg2oi+kxec0fl*6dvrw)48#hg(@rjk%*cu!9guhtexma
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['oneclick-emt3.onrender.com/']
+ALLOWED_HOSTS = ['oneclick-emt3.onrender.com']
 
 
 # Application definition

@@ -1,7 +1,13 @@
-    services:
-      - type: web
-        name: app
-        env: python
-        buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
-        startCommand: "gunicorn clone.wsgi:application"
-        pythonVersion: "3.11"
+services:
+  - type: web
+    name: app
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn clone.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: myproject.settings
+      - key: PYTHON_VERSION
+        value: 3.10
+      - key: SECRET_KEY
+        generateValue: true

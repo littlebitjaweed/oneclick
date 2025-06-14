@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
+# Exit on error
+set -o errexit
 
-echo "Installing npm deps..."
-cd theme/static_src
-npm install
-npm run build
-cd ../../
+pip install -r requirements.txt
 
-python manage.py makemigrations
+python manage.py collectstatic --no-input
 python manage.py migrate
-python manage.py collectstatic --noinput
-
-echo "Loading fixture data..."
-python manage.py loaddata app/fixtures/data.json

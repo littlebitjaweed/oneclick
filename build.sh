@@ -6,12 +6,9 @@ npm install
 npm run build
 cd ../../
 
-echo "Collecting static files..."
-python manage.py collectstatic --noinput
 python manage.py makemigrations
-
-echo "Running migrations..."
 python manage.py migrate
+python manage.py collectstatic --noinput
 
 echo "Loading fixture data..."
-python manage.py loaddata app/fixtures/data.json
+python manage.py loaddata fixtures/data.json

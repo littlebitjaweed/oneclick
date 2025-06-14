@@ -1,1 +1,1 @@
-web: gunicorn Oneclick.wsgi
+web: gunicorn clone.wsgi

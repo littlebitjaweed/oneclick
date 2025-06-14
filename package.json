@@ -2,5 +2,12 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
     "tailwind-scrollbar-hide": "^2.0.0"
-  }
+  },
+  "devDependencies": {
+  "autoprefixer": "^10.4.0",
+  "postcss": "^8.4.5",
+  "tailwindcss": "^3.0.0",
+  "rimraf": "^5.0.5"
 }
+}
+

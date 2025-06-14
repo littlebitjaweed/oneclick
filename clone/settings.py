@@ -40,7 +40,7 @@ SECRET_KEY = 'django-insecure-yo#j_4hg2oi+kxec0fl*6dvrw)48#hg(@rjk%*cu!9guhtexma
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['oneclick-emt3.onrender.com']
+ALLOWED_HOSTS = ['oneclick-emt3.onrender.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -98,10 +98,15 @@ WSGI_APPLICATION = 'clone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'oneclickdb',
+        'USER': 'oneclickuser',
+        'PASSWORD': 'abdullah123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation

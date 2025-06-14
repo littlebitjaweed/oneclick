@@ -1613,24 +1613,7 @@
     "change_message": "[{\"added\": {}}]"
   }
 },
-{
-  "model": "admin.logentry",
-  "pk": 42,
-  "fields": {
-    "action_time": "2025-04-20T06:48:42.083Z",
-    "user": [
-      "abdullah"
-    ],
-    "content_type": [
-      "app",
-      "sellerpayoutdetails"
-    ],
-    "object_id": "1",
-    "object_repr": "abdullah's Payout Details",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
+
 {
   "model": "admin.logentry",
   "pk": 43,

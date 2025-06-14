@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-# Install npm dependencies
+echo "Installing npm deps..."
 cd theme/static_src
 npm install
 npm run build
 cd ../../
 
-# Collect static files
+echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
-# Run migrations
+echo "Running migrations..."
 python manage.py migrate
 
-# Load fixtures
+echo "Loading fixture data..."
 python manage.py loaddata app/fixtures/data.json

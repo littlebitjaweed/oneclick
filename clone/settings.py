@@ -151,5 +151,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEBUG = True
 
 
-NPM_BIN_PATH = 'C:\\Program Files\\nodejs\\npm'
-
+NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'

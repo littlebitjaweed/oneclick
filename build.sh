@@ -11,4 +11,4 @@ python manage.py migrate
 python manage.py collectstatic --noinput
 
 echo "Loading fixture data..."
-python manage.py loaddata fixtures/data.json
+python manage.py loaddata app/fixtures/data.json

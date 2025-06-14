@@ -18,12 +18,14 @@ django-postgresql==0.0.3
 django-tailwind==4.0.1
 Faker==37.1.0
 frozenlist==1.5.0
+gunicorn==23.0.0
 idna==3.10
 Jinja2==3.1.6
 markdown-it-py==3.0.0
 MarkupSafe==3.0.2
 mdurl==0.1.2
 multidict==6.2.0
+packaging==25.0
 paytmchecksum==1.7.0
 pillow==11.1.0
 propcache==0.3.1
@@ -46,4 +48,5 @@ twilio==9.5.1
 types-python-dateutil==2.9.0.20241206
 tzdata==2025.1
 urllib3==2.3.0
+whitenoise==6.9.0
 yarl==1.18.3

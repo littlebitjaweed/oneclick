@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: Oneclick
+    runtime: python
+    buildCommand: |
+      curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+      apt-get install -y nodejs
+      npm install --prefix theme/static_src
+      python manage.py tailwind build
+      python manage.py migrate
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn clone.wsgi:application

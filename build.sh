@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
-# Install Tailwind dependencies
-cd mytheme  # Replace with your Tailwind app name
+# Stop if anything fails
+set -o errexit
+
+# Install Tailwind dependencies and build CSS
+cd theme/static_src
 npm install
 npm run build
-cd ..
+cd ../../
 
 # Collect static files
 python manage.py collectstatic --noinput
+
+# Apply DB migrations
+python manage.py migrate

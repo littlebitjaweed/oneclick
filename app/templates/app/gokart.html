@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}
+    GoCart
+{% endblock %}
+
+{%block head%}
+<link rel="stylesheet" href="{% static 'app/css/gocart.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Hyderabad Go-Karting Race | Sunday, 30th March 2025</h1>
+    <p>📍 Leonia Resorts Rd, Hyderabad (45 min to 1 hour from city centre)</p>
+    <p>⭐⭐⭐⭐⭐</p>
+</header>
+
+<div class="row">
+    <section class="details">
+        <span>20-min track time</span>
+        <span>1.2km international track</span>
+        <span>Flag-offs</span>
+        <span>Lap timing</span>
+        <span>Trophies</span>
+        <span>World-class karts</span>
+        <span>Photographer included</span>
+    </section>
+    <div class="col">
+        <section class="description">
+            <p>Race for guts ‘n glory at a world-class 1.2km karting track, India’s first CIK (Commission International De Karting) approved track in Hyderabad. Sign up for the ultimate test of speed and precision, designed for the brave-hearted. Capture your thrilling moments with an On-Demand Photographer at the venue.</p>
+        </section>
+    </div>
+    <div class="col">
+        <img src="{% static 'app/images/gokart.jpg' %}" alt="">
+    </div>
+    
+    
+    <footer>
+        <button>Check Availability</button>
+    </footer>
+</div>
+
+{% endblock %}

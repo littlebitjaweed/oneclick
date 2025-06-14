@@ -1,0 +1,77 @@
+{% extends 'app/base.html' %}
+{% load static tailwind_tags %}
+
+{% block title %}Sign Up{% endblock %}
+
+
+<!-- <div class="container mx-auto mt-8 px-6">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Create an Account</h2>
+
+    <form method="POST" class="bg-white p-6 rounded-lg shadow-md">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div class="mb-6">
+                <label for="{{ field.id_for_label }}" class="block text-gray-700 font-medium mb-2">{{ field.label }}</label>
+                <div class="relative">
+                
+                    <input type="{{ field.type }}" name="{{ field.name }}" value="{{ field.value }}" id="{{ field.id_for_label }}" 
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                {% if field.errors %}
+                    <div class="text-red-500 text-sm mt-2">{{ field.errors|striptags }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-full hover:bg-indigo-700 transition">Sign Up</button>
+    </form>
+
+    <p class="mt-4 text-center text-gray-600">Already have an account? <a href="{% url 'signin' %}" class="text-indigo-600 hover:text-indigo-700">Log in here</a>.</p>
+</div> -->
+{% block content %}
+<div class="relative min-h-screen flex items-center justify-center p-10">
+
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img src="https://wallpapers.com/images/hd/dark-teal-fl0q9u65czzci2pb.jpg" alt="background" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black opacity-60"></div> <!-- Dark mask over image -->
+  </div>
+
+  <!-- Signup Card -->
+  <div class="relative text-white flex flex-col bg-gradient-to-b from-teal-700 to-teal-950 border-white border-4 w-lg mt-20 rounded-lg shadow-lg">
+    <div class="my-10 mx-10 flex items-center flex-col">
+      
+      <h2 class="text-5xl font-medium"><span class="hover:text-6xl  duration-200">Sign </span><span class="hover:text-6xl  duration-200">Up!</span></h2>
+      <form method="POST">
+        {% csrf_token %}
+      
+      <div class="w-full mt-2 space-y-2">
+          <label for="username" class="font-medium text-md">Username</label>
+          <input type="text" name="username" class="border-white border-2 w-full h-10 bg-transparent px-2 hover:scale-105 transition: ease-in-out duration-500">
+          <label for="email" class="font-medium text-md">Email</label>
+          <input type="text" name="email" class="border-white border-2 w-full h-10 bg-transparent px-2 hover:scale-105 transition: ease-in-out duration-500">
+          <label for="Phone" class="font-medium text-md">Phone Number</label>
+          <input type="text" name="phone_no" class="border-white border-2 w-full h-10 bg-transparent px-2 hover:scale-105 transition: ease-in-out duration-500">
+          <label for="password" class="font-medium text-md">Password</label>
+          <input type="password" name="password" class="border-white border-2 w-full h-10 bg-transparent px-2 hover:scale-105 transition: ease-in-out duration-500" >
+          <label for="password2" class="font-medium text-md">Confirm Password</label>
+          <input type="password" name="password2" class="border-white border-2 w-full h-10 bg-transparent px-2 hover:scale-105 transition: ease-in-out duration-500">
+
+          {% if field.errors %}
+            <div class="text-red-500 text-sm mt-2">{{ field.errors|striptags }}</div>
+          {% endif %}
+      </div>
+      <p>Already have an Account? <a href="{% url 'signin' %} "
+        class="hover:text-blue-500">Sign in</a></p>
+      <div>
+        <button class="bg-gray-500 w-full mt-5 p-3 font-bold hover:bg-gray-900 hover:scale-105 transition: ease-in-out duration-500 hover:cursor-pointer">Create Account</button>
+      </div>
+      </form>
+      
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+

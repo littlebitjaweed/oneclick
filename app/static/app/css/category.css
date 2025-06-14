@@ -1,0 +1,202 @@
+<<<<<<< HEAD
+/* Category Container */
+.category-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.category-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Event Grid */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.no-image {
+    text-align: center;
+    padding: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.event-details {
+    padding: 1rem;
+}
+
+.event-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.event-description {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.event-location,
+.event-price {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.event-location strong,
+.event-price strong {
+    color: #333;
+}
+
+.view-details-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+}
+
+/* No Events Message */
+.no-events {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+=======
+/* Category Container */
+.category-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.category-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Event Grid */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.no-image {
+    text-align: center;
+    padding: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.event-details {
+    padding: 1rem;
+}
+
+.event-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.event-description {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.event-location,
+.event-price {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.event-location strong,
+.event-price strong {
+    color: #333;
+}
+
+.view-details-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+}
+
+/* No Events Message */
+.no-events {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+>>>>>>> c32b2ba38f68d6d961bdd4dc00a7cd7874bf8545
+}

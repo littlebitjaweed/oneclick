@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{% load static tailwind_tags %}
+
+{% block title %}Update Profile{% endblock %}
+
+{% block head %}
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'app/css/update_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="update-profile-container py-8 px-6 bg-gray-50">
+    <h2 class="text-3xl font-semibold text-center text-gray-800 mb-8">Update Profile</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="profile-form bg-white p-6 rounded-lg shadow-md">
+        {% csrf_token %}
+        
+        <!-- Form Fields -->
+        <div class="form-group mb-6">
+            <label for="{{ form.first_name.id_for_label }}" class="block text-gray-700 font-medium mb-2">First Name</label>
+            <input type="text" name="first_name" value="{{ form.first_name.value }}" class="w-full p-3 border border-gray-300 rounded-lg" id="{{ form.first_name.id_for_label }}">
+        </div>
+        <div class="form-group mb-6">
+            <label for="{{ form.last_name.id_for_label }}" class="block text-gray-700 font-medium mb-2">Last Name</label>
+            <input type="text" name="last_name" value="{{ form.last_name.value }}" class="w-full p-3 border border-gray-300 rounded-lg" id="{{ form.last_name.id_for_label }}">
+        </div>
+        <div class="form-group mb-6">
+            <label for="{{ form.email.id_for_label }}" class="block text-gray-700 font-medium mb-2">Email</label>
+            <input type="email" name="email" value="{{ form.email.value }}" class="w-full p-3 border border-gray-300 rounded-lg" id="{{ form.email.id_for_label }}">
+        </div>
+        <div class="form-group mb-6">
+            <label for="{{ form.phone_no.id_for_label }}" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+            <input type="text" name="phone_no" value="{{ form.phone_no.value }}" class="w-full p-3 border border-gray-300 rounded-lg" id="{{ form.phone_no.id_for_label }}">
+        </div>
+        <div class="form-group mb-6">
+            <label for="{{ form.profile_picture.id_for_label }}" class="block text-gray-700 font-medium mb-2">Profile Picture</label>
+            <input type="file" name="profile_picture" class="w-full p-3 border border-gray-300 rounded-lg" id="{{ form.profile_picture.id_for_label }}">
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions flex justify-between items-center">
+            <button type="submit" class="btn save-changes-btn bg-indigo-600 text-white py-2 px-6 rounded-full hover:bg-indigo-700 transition">Save Changes</button>
+            <a href="{% url 'dashboard' %}" class="btn cancel-btn bg-gray-500 text-white py-2 px-6 rounded-full hover:bg-gray-600 transition">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

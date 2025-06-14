@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f4f4f9;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background-color: #007bff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    color: white !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .navbar-toggler {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+  }
+  
+  .navbar-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .navbar-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar-menu ul li {
+    display: inline;
+  }
+  
+  .navbar-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-menu ul li a:hover {
+    color: #ffdd57;
+  }
+  
+  .theme-toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .theme-toggle-btn:hover {
+    color: #ffdd57;
+  }
+  
+  /* Page Content */
+  .page-content {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Responsive Navbar */
+  @media (max-width: 768px) {
+    .navbar-toggler {
+      display: block;
+    }
+  
+    .navbar-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #007bff;
+      position: absolute;
+      top: 60px;
+      right: 1rem;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  
+    .navbar-menu.active {
+      display: flex;
+    }
+  
+    .navbar-menu ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }

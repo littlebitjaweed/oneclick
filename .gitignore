@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.pyc
+*.pyo
+*.pyd
+.python-version
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Django
+db.sqlite3
+*.log
+local_settings.py
+staticfiles/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# System
+.DS_Store
+Thumbs.dbapp/.env
+app/.env

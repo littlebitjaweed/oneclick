@@ -1,0 +1,69 @@
+{% extends 'app/base.html' %}
+{% load static tailwind_tags %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block head %}
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'app/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container py-8 px-6 bg-gray-50">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Dashboard</h1>
+
+    <!-- Profile Section -->
+    <div class="profile-section mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Profile</h2>
+        <div class="profile-picture-container mb-6 flex justify-center">
+            {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture w-32 h-32 object-cover rounded-full border-4 border-indigo-600">
+            {% else %}
+                <img src="{% static 'app/images/default.jpg' %}" alt="Default Profile Picture" class="profile-picture w-32 h-32 object-cover rounded-full border-4 border-indigo-600">
+            {% endif %}
+        </div>
+
+        <div class="profile-info text-gray-700">
+            <p><strong>Name:</strong> {{ request.user.first_name }} {{ request.user.last_name }}</p>
+            <p><strong>Email:</strong> {{ request.user.email }}</p>
+            <p><strong>Phone:</strong> {{ profile.phone_no }}</p>
+        </div>
+
+        <a href="{% url 'update_profile' %}" class="btn edit-profile-btn mt-4 inline-block bg-indigo-600 text-white py-2 px-6 rounded-full hover:bg-indigo-700 transition">Edit Profile</a>
+    </div>
+
+    <!-- Account Type Section -->
+    <div class="account-type-section bg-white p-6 rounded-lg shadow-md mb-8">
+        {% if request.user.profile.is_seller %}
+            <p><strong>Account Type:</strong> Seller ✅</p>
+            <p>You can now list and sell your services.</p>
+            <a href="{% url 'create_event' %}" class="btn create-event-btn mt-4 inline-block bg-indigo-600 text-white py-2 px-6 rounded-full hover:bg-indigo-700 transition">Create Event</a>
+        {% else %}
+            <p><strong>Account Type:</strong> Regular User</p>
+            <a href="{% url 'seller' %}" class="btn upgrade-seller-btn mt-4 inline-block bg-indigo-600 text-white py-2 px-6 rounded-full hover:bg-indigo-700 transition">Upgrade to Seller</a>
+        {% endif %}
+    </div>
+
+    <!-- Seller Events Section -->
+    <div class="seller-events-section bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Your Events</h2>
+        {% if seller_events %}
+            <div class="event-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for event in seller_events %}
+                    <div class="event-card bg-white p-4 rounded-lg shadow-md">
+                        <img src="{{ event.image.url }}" alt="{{ event.name }}" class="event-image w-full h-64 object-cover rounded-lg mb-4">
+                        <div class="event-details">
+                            <h3 class="event-title text-xl font-semibold text-gray-900">{{ event.name }}</h3>
+                            <p class="event-description text-sm text-gray-700">{{ event.description|truncatechars:100 }}</p>
+                            <p class="event-category text-sm text-gray-600 mt-2"><strong>{{ event.get_category_display }}</strong></p>
+                            <a href="{% url 'event_detail' event.pk %}" class="btn view-event-btn inline-block mt-4 bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 transition">View Event</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-events text-center text-lg text-gray-600 mt-8">You haven't created any events yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

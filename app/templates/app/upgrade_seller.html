@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %} Upgrade to Seller {% endblock %}
+
+{% block content %}
+    <h2>Upgrade to Seller</h2>
+    <p>Check the box below to upgrade your account to a Seller.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upgrade</button>
+    </form>
+
+    <a href="{% url 'dashboard' %}">Cancel</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<button id="pay-button">Pay Now</button>
+
+<script>
+document.getElementById("pay-button").onclick = function(e) {
+    fetch("/create-payment/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": "{{ csrf_token }}",
+        },
+        body: JSON.stringify({ amount: 1000 })  // Amount in INR (10.00 INR)
+    })
+    .then(response => response.json())
+    .then(data => {
+        var options = {
+            "key": "{{ RAZORPAY_API_KEY }}",  // Pass Razorpay key from Django
+            "amount": data.amount,
+            "currency": "INR",
+            "order_id": data.order_id,
+            "handler": function(response) {
+                alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+                // You can verify payment on your backend here
+            },
+        };
+        var rzp = new Razorpay(options);
+        rzp.open();
+    })
+    .catch(error => console.error("Error:", error));
+};
+</script>

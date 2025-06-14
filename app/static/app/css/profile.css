@@ -1,0 +1,310 @@
+<<<<<<< HEAD
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-picture-container {
+    margin-bottom: 1rem;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+}
+
+.profile-info {
+    margin-bottom: 1.5rem;
+}
+
+.profile-info p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.edit-profile-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-profile-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.upgrade-seller-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.upgrade-seller-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.create-event-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.create-event-btn:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+/* Account Type Section */
+.account-type-section {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.account-type-section p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Seller Events Section */
+.seller-events-section {
+    margin-top: 2rem;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-details {
+    padding: 1rem;
+}
+
+.event-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.event-description {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.event-category {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #007bff;
+}
+
+.view-event-btn {
+    background-color: #007bff;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.view-event-btn:hover {
+    background-color: #0056b3;
+}
+
+.no-events {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+=======
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-picture-container {
+    margin-bottom: 1rem;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+}
+
+.profile-info {
+    margin-bottom: 1.5rem;
+}
+
+.profile-info p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.edit-profile-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-profile-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.upgrade-seller-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.upgrade-seller-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.create-event-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.create-event-btn:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+/* Account Type Section */
+.account-type-section {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.account-type-section p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Seller Events Section */
+.seller-events-section {
+    margin-top: 2rem;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-details {
+    padding: 1rem;
+}
+
+.event-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.event-description {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.event-category {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #007bff;
+}
+
+.view-event-btn {
+    background-color: #007bff;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.view-event-btn:hover {
+    background-color: #0056b3;
+}
+
+.no-events {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+>>>>>>> c32b2ba38f68d6d961bdd4dc00a7cd7874bf8545
+}

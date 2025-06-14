@@ -1,0 +1,113 @@
+{% extends 'app/base.html' %}
+{% load static tailwind_tags %}
+{% load static %}
+
+{% block head %}
+    {% tailwind_css %}
+{% endblock %}
+
+{% block title %}{{ event.name }}{% endblock %}
+
+{% block content %}
+<!-- <div class="event-container bg-gray-50 py-8">
+    
+    <header class="event-header bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-6 px-8 rounded-lg shadow-lg mb-8">
+        <h1 class="text-4xl font-bold">{{ event.name }}</h1>
+        <p class="event-location text-lg mt-2">📍 {{ event.location }}</p>
+        <div class="event-rating mt-2">
+            <span class="text-xl">⭐⭐⭐⭐⭐</span>
+        </div>
+    </header>
+
+    <div class="event-content grid md:grid-cols-2 gap-8 px-6">
+        <div class="event-info bg-white p-6 rounded-lg shadow-md">
+            <section class="event-details space-y-2">
+                <p class="text-lg"><strong>Description:</strong> {{ event.description }}</p>
+                <p class="text-lg"><strong>Category:</strong> {{ event.get_category_display }}</p>
+                <p class="text-lg"><strong>Price:</strong> ${{ event.price }}</p>
+                <p class="text-lg"><strong>Seller:</strong> {{ event.seller }}</p>
+            </section>
+        </div>
+
+        <div class="event-image flex justify-center items-center bg-gray-100 p-4 rounded-lg">
+            {% if event.image %}
+                <img class="max-w-full max-h-96 object-cover rounded-lg" src="{{ event.image.url }}" alt="{{ event.name }} image">
+            {% else %}
+                <p class="text-gray-500 text-lg">No image available</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="event-highlights mt-12">
+        <h2 class="text-3xl font-semibold text-center text-gray-800 mb-6">Top Highlights</h2>
+        <div class="highlight-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+            <div class="highlight-item bg-white p-4 rounded-lg shadow-md">
+                <img class="w-full h-48 object-cover rounded-lg" src="{% static 'app/images/highlight1.jpg' %}" alt="Highlight 1">
+                <p class="text-center mt-2 text-sm text-gray-700">Experience world-class amenities</p>
+            </div>
+            <div class="highlight-item bg-white p-4 rounded-lg shadow-md">
+                <img class="w-full h-48 object-cover rounded-lg" src="{% static 'app/images/highlight2.jpg' %}" alt="Highlight 2">
+                <p class="text-center mt-2 text-sm text-gray-700">Enjoy delicious cuisine at the venue</p>
+            </div>
+            <div class="highlight-item bg-white p-4 rounded-lg shadow-md">
+                <img class="w-full h-48 object-cover rounded-lg" src="{% static 'app/images/highlight3.jpg' %}" alt="Highlight 3">
+                <p class="text-center mt-2 text-sm text-gray-700">Engage in fun activities with friends</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="event-footer mt-12 text-center">
+        <a href="{% url 'availability' event.pk %}" class="btn bg-indigo-600 text-white py-2 px-6 rounded-full hover:bg-indigo-700 transition">Check availability</a>
+    </footer>
+</div> -->
+
+<div class="py-30">
+    <div class="">
+      <div class="px-10 ">
+        <div class="">
+          <h1 class="text-6xl font-extrabold whitespace-nowrap sm:text-3xl md:text-5xl md:text-wrap">{{ event.name }}</h1>
+          <hr>
+          <button class=" rounded-b-3xl bg-teal-800 p-3 px-5 text-white  transition duration-500 hover:scale-105 ">{{ event.category}}</button>
+        </div>
+
+        <div class="mt-5 grid grid-cols-2 gap-10 border-2 text-white border-gray-200 bg-teal-800 p-5 lg:mx-20 font-extralight hover:shadow-2xl transition duration-500">
+          <div class="md:text-xslg:text-2xl">
+            {{ event.description}}
+            <p class="mt-10">Location: {{ event.location}}</p>
+          </div>
+  
+          <div>
+            <div class="flex justify-end items-end">
+              <img src="{{ event.image.url }}" alt="" srcset="" class="shadow-2xl" />
+
+            </div>
+          </div>
+        </div>
+  
+        <div class="event-highlights mt-4 lg:mx-20 bg-teal-800 px-5  text-white">
+          <h2 class="mb-6 text-center text-3xl font-semibold text-white">Top Highlights</h2>
+          <div class="grid grid-cols-3 gap-6 px-6">
+            <div class=" shadow-md transition duration-500 hover:scale-105 hover:shadow-white hover:shadow-xl hover:text-black">
+              <img class="h-full w-full  object-cover" src="{{ event.highlight_image1.url }}" alt="Highlight 1" />
+              <p class="mt-2 text-center text-sm ">Experience world-class amenities</p>
+            </div>
+            <div class="shadow-md transition duration-500 hover:scale-105 hover:shadow-white hover:shadow-xl hover:text-black">
+              <img class="h-full w-full  object-cover" src="{{ event.highlight_image2.url }}" alt="Highlight 2" />
+              <p class="mt-2 text-center text-sm ">Enjoy delicious cuisine at the venue</p>
+            </div>
+            <div class="shadow-md transition duration-500 hover:scale-105 hover:shadow-white hover:shadow-xl hover:text-black">
+              <img class="h-full w-full  object-cover" src="{{ event.highlight_image3.url }}" alt="Highlight 3" />
+              <p class="mt-2 text-center text-sm ">Engage in fun activities with friends</p>
+            </div>
+          </div>
+          <div class="my-20 flex justify-center">
+            <a href="{% url 'availability' event.pk %}">
+              <button class="rounded-lg bg-teal-500 p-3 text-white hover:scale-105 hover:shadow-xl hover:shadow-white transition duration-500 mb-5 hover:cursor-pointer">Check Availalabilty</button>
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}

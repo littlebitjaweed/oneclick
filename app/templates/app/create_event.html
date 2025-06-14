@@ -1,0 +1,66 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+<!-- <h2>Enter Event Details</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form> -->
+
+
+
+{% block title %}Create Event{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'app/css/create_event.css' %}">
+
+<div class="create-event-container">
+    <h2>Enter Event Details</h2>
+    <form method="post" enctype="multipart/form-data" class="event-form">
+        {% csrf_token %}
+        {% csrf_token %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+        
+        <!-- Form Fields -->
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">Event Name</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.category.id_for_label }}">Category</label>
+            {{ form.category }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.price.id_for_label }}">Price</label>
+            {{ form.price }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.location.id_for_label }}">Location</label>
+            {{ form.location }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.image.id_for_label }}">Event Image</label>
+            {{ form.image }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.date.id_for_label }}">Date</label>
+            {{ form.date }}
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-actions">
+            <button type="submit" class="btn submit-btn">Create Event</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

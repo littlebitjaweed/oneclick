@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static tailwind_tags %}
+<head>
+ 
+
+
+{% block head %}
+    {% tailwind_css %}
+
+    
+{% endblock %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title%}
+
+    {% endblock %}</title>
+</head>
+<body>
+  
+  <nav class="bg-white w-full shadow-md fixed top-0 left-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 relative flex items-center justify-center h-25">
+  
+      <!-- Left: Logo -->
+      <div class="absolute left-0">
+        <a href="#" class="font-black text-2xl sm:text-4xl md:text-6xl hover:scale-105 transition duration-500 ease-in-out hover:text-teal-800 ">
+          OneClick
+        </a>
+      </div>
+  
+      <!-- Center: Nav Links (only on big screens) -->
+      <ul class="hidden sm:flex space-x-10">
+        <li class="font-bold text-xl cursor-pointer transition duration-300 ease-in-out hover:text-teal-800 transform hover:scale-105">
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="font-bold text-xl cursor-pointer transition duration-300 ease-in-out hover:text-teal-800 transform hover:scale-105">
+          <a href="#">Events</a>
+        </li>
+        <li class="font-bold text-xl cursor-pointer transition duration-300 ease-in-out hover:text-teal-800 transform hover:scale-105">
+          <a href="{% url 'about' %}">About</a>
+        </li>
+      </ul>
+      {% if not user.is_authenticated %}
+      <!-- Right: SignUp (only on big screens) -->
+      <div class="hidden sm:block absolute right-0">
+        <a href="{% url 'signup' %}" class="bg-orange-400 text-white px-6 py-2 rounded-lg font-bold transition duration-300 ease-in-out hover:bg-orange-600 transform hover:scale-105">
+          SignUp
+        </a>
+      </div>
+      {% else %}
+      <div class="hidden sm:block absolute right-0">
+        <button id="profile-button" >
+          <img src="{{ user.profile.profile_picture.url }}" alt="Profile" class="h-20 w-20 rounded-full object-cover border-4 border-teal-700 hover:scale-105 transition duration-500">
+        </button>
+
+        <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg text-black z-50">
+          <a href="{% url 'dashboard' %}" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+          <a href="{% url 'logout' %}" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+        </div>
+      </div>
+      {% endif %}
+  
+      <!-- Hamburger Icon (visible on small screens) -->
+      <div class="sm:hidden absolute right-4">
+        <button id="menu-toggle" class="text-3xl focus:outline-none">☰</button>
+      </div>
+  
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out sm:hidden px-6">
+      <ul class="flex flex-col space-y-3 mt-4 text-lg">
+        <li class="font-bold hover:text-red-800 cursor-pointer">Home</li>
+        <li class="font-bold hover:text-red-800 cursor-pointer">Events</li>
+        <li class="font-bold hover:text-red-800 cursor-pointer">About</li>
+        {% if not user.is_authenticated %}
+        <li>
+          <a href="{% url 'signup' %}" class="bg-orange-400 text-white px-6 py-2 rounded-lg font-bold hover:bg-orange-600 w-fit">
+            SignUp
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  
+
+  {% block content%}
+
+  {% endblock %}
+  <script>
+    const toggleBtn = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+  
+    let isOpen = false;
+  
+    toggleBtn.addEventListener("click", () => {
+      isOpen = !isOpen;
+  
+      if (isOpen) {
+        mobileMenu.classList.remove("max-h-0", "opacity-0");
+        mobileMenu.classList.add("max-h-[500px]", "opacity-100");
+      } else {
+        mobileMenu.classList.remove("max-h-[500px]", "opacity-100");
+        mobileMenu.classList.add("max-h-0", "opacity-0");
+      }
+    });
+    const profileBtn = document.getElementById('profile-button');
+    const profileDropdown = document.getElementById('profileDropdown');
+
+    profileBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      profileDropdown.classList.toggle('hidden');
+    });
+
+    // Close the dropdown when clicking outside
+    document.addEventListener('click', function () {
+      profileDropdown.classList.add('hidden');
+    });
+    
+  </script>
+</body>
+</html>

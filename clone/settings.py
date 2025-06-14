@@ -15,6 +15,7 @@ from pathlib import Path
 
 from django.urls import path
 
+import dj_database_url
 
 
 
@@ -38,7 +39,7 @@ RAZORPAY_KEY_SECRET = os.environ.get('RAZORPAY_KEY_SECRET')
 SECRET_KEY = 'django-insecure-yo#j_4hg2oi+kxec0fl*6dvrw)48#hg(@rjk%*cu!9guhtexma'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG') == 'True'
 
 ALLOWED_HOSTS = ['*']
 

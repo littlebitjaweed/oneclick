@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 
-# Exit immediately on error
+# Exit on error
 set -o errexit
 
-# Install Node.js (required for django-tailwind)
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-apt-get install -y nodejs
+# Install Node.js without apt (Render-safe)
+curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+bash n lts
+export PATH="$HOME/n/bin:$PATH"
 
-# Install Tailwind CSS dependencies
+# Install Tailwind dependencies
 npm install --prefix theme/static_src
 
 # Build Tailwind CSS
 python manage.py tailwind build
 
-# Run Django migrations
+# Run Django setup
 python manage.py migrate
-
-# Collect static files
 python manage.py collectstatic --noinput
